@@ -41,7 +41,7 @@ const ChangeStatusButton = ({
             setButtonStatus(!buttonStatus);
         } catch (error) {
             toast({
-                title: "Unable to delete template",
+                title: "Unable to delete user",
                 variant: "destructive",
             });
         } finally {

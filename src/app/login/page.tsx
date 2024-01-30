@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import { redirect, useRouter } from "next/navigation";
@@ -27,13 +28,13 @@ const page = () => {
     const { register, handleSubmit } = useForm<LoginSchemaType>({
         resolver: zodResolver(loginSchema),
     });
+    const { toast } = useToast();
     const router = useRouter();
 
     const onSubmit: SubmitHandler<LoginSchemaType> = async ({
         email,
         password,
     }) => {
-        console.log(email, password);
         const response = await signIn("credentials", {
             redirect: false,
             email: email,
@@ -42,7 +43,10 @@ const page = () => {
         });
 
         if (response?.error) {
-            console.log("error");
+            toast({
+                variant: "destructive",
+                title: "Invalid credentials",
+            });
         } else {
             router.push("/dashboard");
         }
