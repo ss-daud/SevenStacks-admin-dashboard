@@ -35,6 +35,7 @@ type FormSchema = z.infer<typeof formSchema>;
 
 const AddTemplateForm = () => {
     const [value, setValue] = useState("");
+    const [loading, setLoading] = useState(false);
     const { data } = useSession();
     const { toast } = useToast();
     const router = useRouter();
@@ -52,6 +53,7 @@ const AddTemplateForm = () => {
 
     const onSubmit = async ({ name, template }: FormSchema) => {
         console.log(name, value);
+        setLoading(true);
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/template`, {
             cache: "no-store",
             method: "POST",
@@ -70,7 +72,7 @@ const AddTemplateForm = () => {
             console.log(res);
             toast({
                 variant: "destructive",
-                title: "Unable to make a new template please try again",
+                title: "Template name already exists",
             });
             return;
         }
@@ -78,6 +80,7 @@ const AddTemplateForm = () => {
         const data = await res.json();
 
         toast({ title: "New template created" });
+        setLoading(false);
         router.push("/dashboard/templates");
     };
 
@@ -129,7 +132,7 @@ const AddTemplateForm = () => {
                     )}
                 /> */}
                 <div>
-                    <Button className="" type="submit">
+                    <Button className="" type="submit" disabled={loading}>
                         Add Template
                     </Button>
                 </div>
