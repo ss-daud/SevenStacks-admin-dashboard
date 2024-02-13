@@ -39,7 +39,7 @@ const UserTableOptions = ({ id }: { id: number }) => {
             router.refresh();
         } catch (error) {
             toast({
-                title: "Unable to delete user",
+                title: "User Does not exists",
                 variant: "destructive",
             });
         }

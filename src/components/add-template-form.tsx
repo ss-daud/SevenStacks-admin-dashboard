@@ -74,6 +74,7 @@ const AddTemplateForm = () => {
                 variant: "destructive",
                 title: "Template name already exists",
             });
+            setLoading(false);
             return;
         }
 

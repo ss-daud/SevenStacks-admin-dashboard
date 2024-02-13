@@ -21,7 +21,6 @@ const TemplateTableOptions = ({ id }: { id: number }) => {
     const { toast } = useToast();
     const { data } = useSession();
     const router = useRouter();
-
     // @ts-ignore
     const apiToken = data.apiToken;
 
