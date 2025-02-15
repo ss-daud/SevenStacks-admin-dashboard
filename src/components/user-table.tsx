@@ -15,6 +15,7 @@ import axios from "axios";
 import ChangeStatusButton from "./change-status-button";
 import { authOptions } from "@/lib/authOptions";
 import UserTableOptions from "./user-table-options";
+import Adminstatus from "./Adminstatus";
 
 async function getData(token: string) {
     try {
@@ -48,6 +49,7 @@ const UserTable = async () => {
                         <TableHead>Name</TableHead>
                         <TableHead>Email</TableHead>
                         <TableHead className="text-center">Status</TableHead>
+                        <TableHead className="text-center">Admin</TableHead>
                         <TableHead className="text-center"></TableHead>
                     </TableRow>
                 </TableHeader>
@@ -64,6 +66,13 @@ const UserTable = async () => {
                                     <TableCell className="text-center">
                                         <ChangeStatusButton
                                             originalStatus={user.isActive}
+                                            adminApiToken={apiToken}
+                                            userId={user._id}
+                                        />
+                                    </TableCell>
+                                    <TableCell className="text-center">
+                                       <Adminstatus
+                                            originalStatus={user.isAdmin}
                                             adminApiToken={apiToken}
                                             userId={user._id}
                                         />
