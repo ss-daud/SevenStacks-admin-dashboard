@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import React from "react";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/authOptions";
+import { title } from "process";
 
 const sidebarNavItems = [
     {
@@ -14,6 +15,10 @@ const sidebarNavItems = [
         title: "Templates",
         href: "/dashboard/templates",
     },
+    {
+        title : "Buttons",
+        href : "/dashboard/buttons"
+    }
 ];
 
 interface LayoutProps {
