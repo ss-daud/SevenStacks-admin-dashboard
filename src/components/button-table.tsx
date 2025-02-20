@@ -8,7 +8,6 @@ import {
     TableHeader,
     TableRow,
 } from "./ui/table";
-import ButtonTableEdit from "./button-table-edit";
 import { FaAlignLeft } from "react-icons/fa";
 import axios from "axios";
 import { useToast } from "./ui/use-toast";
