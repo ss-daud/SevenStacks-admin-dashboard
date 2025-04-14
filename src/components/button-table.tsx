@@ -11,6 +11,7 @@ import {
 import { FaAlignLeft } from "react-icons/fa";
 import axios from "axios";
 import { useToast } from "./ui/use-toast";
+import decryptionofData from "@/decryption/decryption";
 
 async function getData() {
     try {
@@ -24,7 +25,8 @@ async function getData() {
         }
 
         const data = await response.json();
-        return data.buttons || []; // Ensure it always returns an array
+        const deccryptedData = await decryptionofData(data.encryptedResponse);
+        return deccryptedData.buttons || []; // Ensure it always returns an array
     } catch (error) {
         console.error("Error fetching button data:", error);
         return [];
