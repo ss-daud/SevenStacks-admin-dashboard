@@ -57,7 +57,7 @@ export const authOptions: AuthOptions = {
             },
             async authorize(credentials, req) {
                 const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_SERVER}/admin/login`,
+                    `${process.env.INTERNAL_API_URL}/admin/login`,
                     {
                         method: "POST",
                         headers: {
