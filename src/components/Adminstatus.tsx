@@ -19,7 +19,7 @@ const Adminstatus = ({ originalStatus, adminApiToken, userId }: AdminStatusProps
         setIsPending(true);
         try {
             await axios.patch(
-                `${process.env.INTERNAL_API_URL}/user/adminstatus`,
+                `${process.env.NEXT_PUBLIC_SERVER}/user/adminstatus`,
                 { status: !buttonStatus, userId },
                 { headers: { authorization: `Bearer ${adminApiToken}` } }
             );

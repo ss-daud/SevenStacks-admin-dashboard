@@ -12,7 +12,7 @@ import {
 async function getData() {
     try {
         const response = await axios.get(
-            `${process.env.INTERNAL_API_URL}/template/all`,
+            `${process.env.NEXT_PUBLIC_SERVER}/template/all`,
         );
         return response.data;
     } catch (error) {
