@@ -27,7 +27,7 @@ const TemplateTableOptions = ({ id }: { id: number }) => {
     const deleteTemplateHandler = async () => {
         try {
             const response = await axios.delete(
-                `${process.env.INTERNAL_API_URL}/template/${id}`,
+                `${process.env.NEXT_PUBLIC_SERVER}/template/${id}`,
                 {
                     headers: {
                         authorization: `Bearer ${apiToken}`,

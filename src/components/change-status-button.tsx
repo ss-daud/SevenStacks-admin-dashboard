@@ -26,7 +26,7 @@ const ChangeStatusButton = ({
         setIsPending(true);
         try {
             const response = await axios.patch(
-                `${process.env.INTERNAL_API_URL}/user/status`,
+                `${process.env.NEXT_PUBLIC_SERVER}/user/status`,
                 {
                     status: !buttonStatus,
                     userId,

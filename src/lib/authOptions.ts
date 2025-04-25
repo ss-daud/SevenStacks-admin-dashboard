@@ -57,7 +57,7 @@ export const authOptions: AuthOptions = {
             },
             async authorize(credentials, req) {
                 const response = await fetch(
-                    `${process.env.INTERNAL_API_URL}/admin/login`,
+                    `${process.env.NEXT_PUBLIC_SERVER}/admin/login`,
                     {
                         method: "POST",
                         headers: {
@@ -69,8 +69,7 @@ export const authOptions: AuthOptions = {
                         }),
                     },
                 );
-
-                if (!response.ok) {
+                if (response.status !== 200) {
                     return null;
                 }
 

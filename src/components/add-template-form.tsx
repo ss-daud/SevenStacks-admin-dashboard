@@ -54,7 +54,7 @@ const AddTemplateForm = () => {
     const onSubmit = async ({ name, template }: FormSchema) => {
         console.log(name, value);
         setLoading(true);
-        const res = await fetch(`${process.env.INTERNAL_API_URL}/template`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/template`, {
             cache: "no-store",
             method: "POST",
             headers: {

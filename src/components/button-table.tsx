@@ -16,7 +16,7 @@ import decryptionofData from "@/decryption/decryption";
 async function getData() {
     try {
         const response = await fetch(
-            `${process.env.INTERNAL_API_URL}/buttons/list`,
+            `${process.env.NEXT_PUBLIC_SERVER}/buttons/list`,
             { cache: "no-store" } // Prevent caching for fresh data
         );
 
@@ -55,7 +55,7 @@ const ButtonTable = () => {
 
     const handleSubmit = async () => {
         try {
-            const res = await axios.post(`${process.env.INTERNAL_API_URL}/buttons/edit`, { name: selectedButton?.name, text: selectedButton?.text });
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_SERVER}/buttons/edit`, { name: selectedButton?.name, text: selectedButton?.text });
             if (res.data.success) {
                 toast.toast(res.data.message);
                 handleCloseDrawer();
