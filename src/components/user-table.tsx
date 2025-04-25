@@ -20,7 +20,7 @@ import Adminstatus from "./Adminstatus";
 async function getData(token: string) {
     try {
         const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_SERVER}/user/all`,
+            `${process.env.INTERNAL_API_URL}/user/all`,
             {
                 headers: {
                     authorization: `Bearer ${token}`,

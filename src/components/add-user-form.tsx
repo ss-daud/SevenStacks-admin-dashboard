@@ -45,7 +45,7 @@ const AddUserForm = () => {
 
     const onSubmit = async ({ email, name, username }: FormSchema) => {
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_SERVER}/user/createUser`,
+            `${process.env.INTERNAL_API_URL}/user/createUser`,
             {
                 cache: "no-store",
                 method: "POST",

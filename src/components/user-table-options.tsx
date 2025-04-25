@@ -28,7 +28,7 @@ const UserTableOptions = ({ id }: { id: number }) => {
     const deleteUserHandler = async () => {
         try {
             const response = await axios.delete(
-                `${process.env.NEXT_PUBLIC_SERVER}/user/delete/${id}`,
+                `${process.env.INTERNAL_API_URL}/user/delete/${id}`,
                 {
                     headers: {
                         authorization: `Bearer ${apiToken}`,
